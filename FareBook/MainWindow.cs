@@ -9,16 +9,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FareBook.Model;
 using FareBook.Service;
+using System.Runtime.InteropServices;
 
 namespace FareBook
 {
     public partial class MainWindow : Form
     {
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HTCAPTION = 0x2;
+        [DllImport("User32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         public MainWindow()
         {
             InitializeComponent();
 
             GetClient();
+
+            lblClientName.Text = "";
+
+            ActiveControl = lblClientName;
+
+            richTxtBoxLF.Text = "";
+
+            richTxtBoxReferenceFare.Text = "";
         }
 
         private void GetClient()
@@ -152,6 +168,66 @@ namespace FareBook
         private void lblClientName_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBoxSearch_Enter(object sender, EventArgs e)
+        {
+            txtBoxSearch.Text = "";
+        }
+
+        private void txtBoxSearch_Leave(object sender, EventArgs e)
+        {
+            txtBoxSearch.Text = "Search Here";
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void MenuMove(MouseEventArgs e)
+        {
+            this.ActiveControl = lblClientName;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MenuMove(e);
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MenuMove(e);
+        }
+
+        private void txtBoxSearch_MouseDown(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void lblClientName_MouseDown(object sender, MouseEventArgs e)
+        {
+            MenuMove(e);
+        }
+
+        private void MainWindow_MouseDown(object sender, MouseEventArgs e)
+        {
+            MenuMove(e);
+        }
+
+        private void richTxtBoxReferenceFare_MouseDown(object sender, MouseEventArgs e)
+        {
+            MenuMove(e);
         }
     }
 }
