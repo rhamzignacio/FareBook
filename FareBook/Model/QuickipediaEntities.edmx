@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuickipediaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientCode" Type="varchar" MaxLength="20" />
+          <Property Name="ClientType" Type="varchar" MaxLength="20" />
+          <Property Name="ClientName" Type="varchar" MaxLength="250" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Biller" Type="varchar" MaxLength="250" />
+          <Property Name="AccountOfficer" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="BillerID" Type="uniqueidentifier" />
+          <Property Name="ContractStartDate" Type="date" />
+          <Property Name="ContractEndDate" Type="date" />
+        </EntityType>
+        <EntityType Name="FareComparison">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientCode" Type="varchar" MaxLength="20" />
+          <Property Name="LF" Type="varchar" MaxLength="1" />
+          <Property Name="LowFare" Type="varchar" MaxLength="500" />
+          <Property Name="RF" Type="varchar" MaxLength="1" />
+          <Property Name="ReferenceFare" Type="varchar" MaxLength="500" />
+          <Property Name="HotelStandardFare" Type="varchar" MaxLength="1" />
+          <Property Name="CarStandardFare" Type="varchar" MaxLength="1" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Quickipedia.dbo.vw_FareComparison' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_FareComparison">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientCode" Type="varchar" MaxLength="20" />
+          <Property Name="ClientName" Type="varchar" MaxLength="250" />
+          <Property Name="LF" Type="varchar" MaxLength="1" />
+          <Property Name="LowFare" Type="varchar" MaxLength="500" />
+          <Property Name="RF" Type="varchar" MaxLength="1" />
+          <Property Name="ReferenceFare" Type="varchar" MaxLength="500" />
+          <Property Name="HotelStandardFare" Type="varchar" MaxLength="1" />
+          <Property Name="CarStandardFare" Type="varchar" MaxLength="1" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="QuickipediaModelStoreContainer">
+          <EntitySet Name="ClientProfile" EntityType="Self.ClientProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FareComparison" EntityType="Self.FareComparison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_FareComparison" EntityType="Self.vw_FareComparison" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_FareComparison].[ID] AS [ID], 
+    [vw_FareComparison].[ClientCode] AS [ClientCode], 
+    [vw_FareComparison].[ClientName] AS [ClientName], 
+    [vw_FareComparison].[LF] AS [LF], 
+    [vw_FareComparison].[LowFare] AS [LowFare], 
+    [vw_FareComparison].[RF] AS [RF], 
+    [vw_FareComparison].[ReferenceFare] AS [ReferenceFare], 
+    [vw_FareComparison].[HotelStandardFare] AS [HotelStandardFare], 
+    [vw_FareComparison].[CarStandardFare] AS [CarStandardFare], 
+    [vw_FareComparison].[ModifiedBy] AS [ModifiedBy], 
+    [vw_FareComparison].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[vw_FareComparison] AS [vw_FareComparison]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuickipediaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ClientCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ClientType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ClientName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Biller" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AccountOfficer" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="BillerID" Type="Guid" />
+          <Property Name="ContractStartDate" Type="DateTime" Precision="0" />
+          <Property Name="ContractEndDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="FareComparison">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ClientCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LowFare" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceFare" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HotelStandardFare" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CarStandardFare" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="QuickipediaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientProfile" EntityType="Self.ClientProfile" />
+          <EntitySet Name="FareComparison" EntityType="Self.FareComparison" />
+          <EntitySet Name="vw_FareComparison" EntityType="QuickipediaModel.vw_FareComparison" />
+        </EntityContainer>
+        <EntityType Name="vw_FareComparison">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ClientCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ClientName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LowFare" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceFare" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HotelStandardFare" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CarStandardFare" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuickipediaModelStoreContainer" CdmEntityContainer="QuickipediaEntities">
+          <EntitySetMapping Name="ClientProfile">
+            <EntityTypeMapping TypeName="QuickipediaModel.ClientProfile">
+              <MappingFragment StoreEntitySet="ClientProfile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Biller" ColumnName="Biller" />
+                <ScalarProperty Name="AccountOfficer" ColumnName="AccountOfficer" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="BillerID" ColumnName="BillerID" />
+                <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
+                <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FareComparison">
+            <EntityTypeMapping TypeName="QuickipediaModel.FareComparison">
+              <MappingFragment StoreEntitySet="FareComparison">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="LF" ColumnName="LF" />
+                <ScalarProperty Name="LowFare" ColumnName="LowFare" />
+                <ScalarProperty Name="RF" ColumnName="RF" />
+                <ScalarProperty Name="ReferenceFare" ColumnName="ReferenceFare" />
+                <ScalarProperty Name="HotelStandardFare" ColumnName="HotelStandardFare" />
+                <ScalarProperty Name="CarStandardFare" ColumnName="CarStandardFare" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_FareComparison">
+            <EntityTypeMapping TypeName="QuickipediaModel.vw_FareComparison">
+              <MappingFragment StoreEntitySet="vw_FareComparison">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CarStandardFare" ColumnName="CarStandardFare" />
+                <ScalarProperty Name="HotelStandardFare" ColumnName="HotelStandardFare" />
+                <ScalarProperty Name="ReferenceFare" ColumnName="ReferenceFare" />
+                <ScalarProperty Name="RF" ColumnName="RF" />
+                <ScalarProperty Name="LowFare" ColumnName="LowFare" />
+                <ScalarProperty Name="LF" ColumnName="LF" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

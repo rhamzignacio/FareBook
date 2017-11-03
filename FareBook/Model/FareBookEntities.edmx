@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FareBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FareComparison">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="250" />
+          <Property Name="LF" Type="varchar" MaxLength="1" />
+          <Property Name="LowFare" Type="varchar" MaxLength="500" />
+          <Property Name="RF" Type="varchar" MaxLength="1" />
+          <Property Name="ReferenceFare" Type="varchar" MaxLength="500" />
+          <Property Name="HotelStandardRate" Type="varchar" MaxLength="500" />
+          <Property Name="CarStandardRate" Type="varchar" MaxLength="500" />
+          <Property Name="OtherNotes" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="FareBookModelStoreContainer">
+          <EntitySet Name="FareComparison" EntityType="Self.FareComparison" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FareBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FareComparison">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LowFare" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RF" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceFare" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HotelStandardRate" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CarStandardRate" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OtherNotes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="FareBookEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FareComparisons" EntityType="Self.FareComparison" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FareBookModelStoreContainer" CdmEntityContainer="FareBookEntities">
+          <EntitySetMapping Name="FareComparisons">
+            <EntityTypeMapping TypeName="FareBookModel.FareComparison">
+              <MappingFragment StoreEntitySet="FareComparison">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="LF" ColumnName="LF" />
+                <ScalarProperty Name="LowFare" ColumnName="LowFare" />
+                <ScalarProperty Name="RF" ColumnName="RF" />
+                <ScalarProperty Name="ReferenceFare" ColumnName="ReferenceFare" />
+                <ScalarProperty Name="HotelStandardRate" ColumnName="HotelStandardRate" />
+                <ScalarProperty Name="CarStandardRate" ColumnName="CarStandardRate" />
+                <ScalarProperty Name="OtherNotes" ColumnName="OtherNotes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
