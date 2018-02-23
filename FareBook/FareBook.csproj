@@ -25,11 +25,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://192.168.0.47:2001/</InstallUrl>
     <PublisherName>Philscan Travel &amp; Tours Inc</PublisherName>
-    <MinimumRequiredVersion>1.5.0.0</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2.0.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.5.0.0</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.0.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>

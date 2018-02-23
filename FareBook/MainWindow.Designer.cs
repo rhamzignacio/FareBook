@@ -40,12 +40,12 @@
             this.lblYesCar = new System.Windows.Forms.Label();
             this.lblClientName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.richTxtBoxReferenceFare = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richTxtBoxLF = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -205,17 +205,6 @@
             this.panel1.TabIndex = 7;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(137, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "FareRef 2.0";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
-            // 
             // btnMinimize
             // 
             this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -232,6 +221,17 @@
             this.btnMinimize.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(137, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "FareRef 2.0";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // btnClose
             // 
@@ -255,6 +255,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.richTxtBoxReferenceFare);
             this.panel2.Controls.Add(this.lblNoRF);
             this.panel2.Controls.Add(this.label2);
@@ -264,6 +265,15 @@
             this.panel2.Size = new System.Drawing.Size(314, 100);
             this.panel2.TabIndex = 8;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTxtBoxReferenceFare_MouseDown);
+            // 
+            // richTxtBoxReferenceFare
+            // 
+            this.richTxtBoxReferenceFare.Location = new System.Drawing.Point(8, 31);
+            this.richTxtBoxReferenceFare.Name = "richTxtBoxReferenceFare";
+            this.richTxtBoxReferenceFare.Size = new System.Drawing.Size(296, 59);
+            this.richTxtBoxReferenceFare.TabIndex = 6;
+            this.richTxtBoxReferenceFare.Text = "label3";
+            this.richTxtBoxReferenceFare.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTxtBoxReferenceFare_MouseDown);
             // 
             // label2
             // 
@@ -276,18 +286,10 @@
             this.label2.Text = "Reference Fare / High Fare";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTxtBoxReferenceFare_MouseDown);
             // 
-            // richTxtBoxReferenceFare
-            // 
-            this.richTxtBoxReferenceFare.Location = new System.Drawing.Point(8, 31);
-            this.richTxtBoxReferenceFare.Name = "richTxtBoxReferenceFare";
-            this.richTxtBoxReferenceFare.Size = new System.Drawing.Size(296, 59);
-            this.richTxtBoxReferenceFare.TabIndex = 6;
-            this.richTxtBoxReferenceFare.Text = "label3";
-            this.richTxtBoxReferenceFare.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTxtBoxReferenceFare_MouseDown);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.lblNoLF);
             this.panel3.Controls.Add(this.richTxtBoxLF);
             this.panel3.Controls.Add(this.label5);
@@ -321,6 +323,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.lblNoHotel);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.lblYesHotel);
@@ -344,6 +347,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.lblNoCar);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.lblYesCar);
@@ -368,7 +372,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(338, 364);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
